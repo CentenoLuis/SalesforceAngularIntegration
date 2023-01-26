@@ -17,7 +17,7 @@ export class TestComponentComponent implements OnInit {
   }
 
   getToken() {
-    this.salesforceOauthService.getToken().subscribe((resp) => {
+    this.salesforceOauthService.getTokenService().subscribe((resp) => {
       console.log('Response: ', resp);
     });
   }
