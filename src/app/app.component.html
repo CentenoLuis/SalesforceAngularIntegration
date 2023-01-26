@@ -1,1 +1,10 @@
-<app-test-component></app-test-component>
+<div class="grid-container">
+  <!-- <app-toolbar class="grid-header" *ngIf="(sesionActiva$ | async)"></app-toolbar> -->
+  <app-toolbar class="grid-header"></app-toolbar>
+
+  <app-navbar class="grid-navbar"></app-navbar>
+  <!--   <div class="grid-students">
+    <router-outlet></router-outlet>
+  </div> -->
+  <app-test-component class="grid-students"></app-test-component>
+</div>
