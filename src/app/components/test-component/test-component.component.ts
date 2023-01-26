@@ -12,9 +12,7 @@ export class TestComponentComponent implements OnInit {
 
   constructor(private salesforceOauthService: SalesforceOAuthService) {}
 
-  ngOnInit(): void {
-    // this.response$ = this.salesforceOauthService.getToken();
-  }
+  ngOnInit(): void {}
 
   getToken() {
     this.salesforceOauthService.getTokenService().subscribe((resp) => {
