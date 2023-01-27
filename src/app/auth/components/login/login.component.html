@@ -1,0 +1,39 @@
+<h1>Login</h1>
+<div>
+  <form [formGroup]="formulario" (ngSubmit)="login()">
+    <mat-form-field appearance="fill">
+      <mat-label>Org Type</mat-label>
+      <input formControlName="orgType" type="text" matInput />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Usuario</mat-label>
+      <input formControlName="usuario" type="text" matInput />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Contraseña</mat-label>
+      <input formControlName="contrasena" type="password" matInput />
+    </mat-form-field>
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="formulario.invalid"
+    >
+      Login
+    </button>
+  </form>
+
+  <div>
+    <p>
+      "user": "Hartmann", "password": "xVwUHB3NTKUrL01", "admin": false, "id":
+      "1"
+    </p>
+  </div>
+  <div>
+    <p>Developer: Luis Centeno</p>
+    <p>I've worked on this project for ___ hours and ___ minutes.</p>
+    <p>January 2023</p>
+  </div>
+</div>
