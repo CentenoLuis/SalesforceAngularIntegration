@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
 import { Usuario } from 'src/app/models/usuario';
 import { SalesforceOAuthService } from 'src/app/services/salesforce-oauth.service';
 
@@ -10,22 +11,27 @@ import { SalesforceOAuthService } from 'src/app/services/salesforce-oauth.servic
 })
 export class Login2Component {
   formulario: FormGroup = new FormGroup({
-    usuario: new FormControl('Wunsch', [Validators.required]),
-    contrasena: new FormControl('vbm2otNob_UV224', [Validators.required]),
+    username: new FormControl('Wunsch', [Validators.required]),
+    password: new FormControl('vbm2otNob_UV224', [Validators.required]),
     orgType: new FormControl('Production', [Validators.required]),
   });
+  response$?: Observable<Object>;
 
   constructor(private auth: SalesforceOAuthService) {}
 
   login() {
     const usuario: Usuario = {
-      username: this.formulario.value.usuario,
-      password: this.formulario.value.contrasena,
+      username: this.formulario.value.username,
+      password: this.formulario.value.password,
       orgType: this.formulario.value.orgType,
     };
 
-    this.auth.getTokenService().subscribe((resp) => {
+    /*  this.auth.getTokenService().subscribe((resp) => {
       console.log('Response: ', resp);
+    }); */
+
+    this.auth.getUserSession(usuario).subscribe((resp) => {
+      console.log('*** Respuesta from NodeJs: ', resp);
     });
 
     /*  this.auth.iniciarSesion(usuario).subscribe((usuario: Usuario) => {
