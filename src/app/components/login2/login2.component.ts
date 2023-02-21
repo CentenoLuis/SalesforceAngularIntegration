@@ -10,10 +10,20 @@ import { SalesforceOAuthService } from 'src/app/services/salesforce-oauth.servic
   styleUrls: ['./login2.component.css'],
 })
 export class Login2Component {
+  orgType?: number;
+
+  orgTypeList = [
+    { id: 0, value: 'https://login.salesforce.com' },
+    { id: 1, value: 'https://test.salesforce.com' },
+  ];
+
   formulario: FormGroup = new FormGroup({
-    username: new FormControl('Wunsch', [Validators.required]),
-    password: new FormControl('vbm2otNob_UV224', [Validators.required]),
-    orgType: new FormControl('Production', [Validators.required]),
+    username: new FormControl('luis001155@resilient-unicorn-k0t2gm.com', [
+      Validators.required,
+    ]),
+    password: new FormControl('mysecondITjob1080$', [Validators.required]),
+    orgType2: new FormControl(null, [Validators.required]),
+    secretId: new FormControl('', [Validators.required]),
   });
   response$?: Observable<Object>;
 
@@ -23,8 +33,11 @@ export class Login2Component {
     const usuario: Usuario = {
       username: this.formulario.value.username,
       password: this.formulario.value.password,
-      orgType: this.formulario.value.orgType,
+      orgType: this.formulario.value.orgType2,
+      secretId: this.formulario.value.secretId,
     };
+
+    console.log('***Data from reactive Form: ', usuario);
 
     /*  this.auth.getTokenService().subscribe((resp) => {
       console.log('Response: ', resp);

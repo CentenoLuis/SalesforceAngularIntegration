@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppMaterialModule } from './app.material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -29,6 +30,7 @@ import { Login2Component } from './components/login2/login2.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    NgSelectModule,
   ],
   providers: [SalesforceOAuthService],
   bootstrap: [AppComponent],
