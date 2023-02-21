@@ -43,9 +43,7 @@ export class Login2Component {
       console.log('Response: ', resp);
     }); */
 
-    this.auth.getUserSession(usuario).subscribe((resp) => {
-      console.log('*** Respuesta from NodeJs: ', resp);
-    });
+    this.auth.getUserSession(usuario);
 
     /*  this.auth.iniciarSesion(usuario).subscribe((usuario: Usuario) => {
       this.store.dispatch(loadSesion({ usuarioActivo: usuario }));

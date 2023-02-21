@@ -2,7 +2,7 @@
   <!-- <app-toolbar class="grid-header" *ngIf="(sesionActiva$ | async)"></app-toolbar> -->
   <app-toolbar class="grid-header"></app-toolbar>
 
-  <app-navbar class="grid-navbar"></app-navbar>
+  <app-navbar class="grid-navbar" *ngIf="user?.username"></app-navbar>
   <!--   <div class="grid-students">
     <router-outlet></router-outlet>
   </div> -->
